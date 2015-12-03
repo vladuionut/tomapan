@@ -20,7 +20,9 @@ module.exports = function login(inputs) {
       if (req.wantsJSON || !inputs.invalidRedirect) {
         return res.badRequest('Invalid username/password combination.');
       }
-      return res.redirect(inputs.invalidRedirect);
+
+      return res.badRequest('Invalid username/password combination.');
+      //return res.redirect(inputs.invalidRedirect);
     }
 
     var password = inputs.password;

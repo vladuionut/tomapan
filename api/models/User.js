@@ -49,7 +49,7 @@ module.exports = {
         password: password,
         avatar: inputs.avatar
       }
-    );
+    ).
     exec(cb);
   },
 
