@@ -362,3 +362,16 @@ table.dataTable thead .sorting:after {
   color:black;
   height: 65px;
 }
+
+
+
+.sidebar .list-group .list-group-separator{
+  margin : 0;
+}
+.sidebar  .list-group-separator{
+  padding-left: 16px !important;
+}
+.sidebar  .list-group .list-group-separator:before {
+  width: 100% !important;
+
+}
