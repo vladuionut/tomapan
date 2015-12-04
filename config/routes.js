@@ -34,8 +34,9 @@ module.exports.routes = {
 
   // HTML Views
   '/': { view: 'homepage' },
-  '/quiz': { view: 'quiz' },
+  '/quiz': { view: 'game' },
   '/login1':{view:'login'},
+  '/inregistrare':{view:'signup'},
   // Endpoints
   'post /login': 'UserController.login',
   '/signup': 'UserController.signup',
