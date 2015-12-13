@@ -34,6 +34,22 @@ module.exports = {
     ip: {
       type: 'string',
       required: false
+    },
+    rooms: {
+      collection: 'room',
+      via: 'users',
+      dominant: true
+    },
+    // Override the default toJSON method
+
+    toJSON: function() {
+      var obj = this.toObject();
+
+      return {
+        name:obj.name,
+        avatar:obj.avatar,
+        id:obj.id
+      }
     }
   },
   signup: function (inputs, cb) {

@@ -41,7 +41,9 @@ module.exports.routes = {
   'post /login': 'UserController.login',
   '/signup': 'UserController.signup',
   '/logout': 'UserController.logout',
-
+ /* 'post /jointToRoom/:roomId': 'RoomController.join',
+  'delete /room/:roomId/users': 'RoomController.leave',*/
+  '/room/:roomId/join': 'RoomController.subscribeToFunRoom'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
