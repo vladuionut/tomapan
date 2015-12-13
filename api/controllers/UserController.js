@@ -38,12 +38,17 @@ module.exports = {
       name: req.param('name'),
       email: req.param('email'),
       password: req.param('password'),
-      avatar: req.param('avatar'),
+      avatar: req.param('avatar')
     }, function (err, user) {
       // res.negotiate() will determine if this is a validation error
       // or some kind of unexpected server error, then call `res.badRequest()`
       // or `res.serverError()` accordingly.
       if (err) return res.negotiate(err);
+
+
+      User.publishCreate({id:user.id,name:user.name});
+      console.log('A new user called '+user.name+' has been created');
+
 
       // Go ahead and log this user in as well.
       // We do this by "remembering" the user in the session.
