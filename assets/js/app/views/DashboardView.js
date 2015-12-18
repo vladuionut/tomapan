@@ -5,7 +5,8 @@ define(function (require) {
 
   var Backbone = require("backbone");
   var dashBoardTpl = require("text!templates/dashboard.html"),
-     SidebarView = require("app/views/Sidebarview");
+      SidebarView = require("app/views/Sidebarview"),
+      CreateRoomView = require("app/views/CreateRoomView");
   return Backbone.View.extend({
     el: "#dashboard",
     template: _.template(dashBoardTpl),
@@ -19,8 +20,14 @@ define(function (require) {
 
       this.$("#dashboard_sidebar").html(this._nestedViews.sidebar.render().el);
       return this;
-    }
+    },
+    events:{
+      "click #create_room": "createRoom"
 
+    },
+    createRoom:function(){
+      CreateRoomView.render();
+    }
   });
 
 
