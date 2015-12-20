@@ -1,3 +1,7 @@
+<% if (!req.session.me) {
+  res.redirect('login');
+}
+%>
 <div id="dashboard">
 
 </div>

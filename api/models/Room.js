@@ -15,6 +15,10 @@ module.exports = {
       via: 'rooms'
     }
 
-  }
+  },
+  afterCreate: function(newlyInsertedRecord, cb){
+
+    cb();
+}
 };
 

@@ -194,23 +194,28 @@
     requestOptions.method = verb;
     requestOptions.params = params;
 
+    var simulatedXHR = $.Deferred();
     // Send a simulated HTTP request to Sails via Socket.io
-    var simulatedXHR =
+
       socket.request(requestOptions, function serverResponded(response, status) {
-        if (status.statusCode == 200) {
+
+        //http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2
+        if (status.statusCode >= 200 && status.statusCode < 300) {
           if (options.success) options.success(response);
+          simulatedXHR.resolve(response, status);
         } else {
           console.error("Server error", status.statusCode, status.error);
+          simulatedXHR.reject(response, status);
         }
 
       }, verb);
 
-
+    var promise = simulatedXHR.promise();
     // Trigget the `request` event on the Backbone model
-    model.trigger('request', model, simulatedXHR, options);
+    model.trigger('request', model, promise, options);
 
 
-    return simulatedXHR;
+    return promise;
   };
 
 
