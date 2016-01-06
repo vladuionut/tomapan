@@ -20,7 +20,12 @@ module.exports = {
     // collection.
     return next();
   },
+  "roundEnd":function(){
 
+    sails.sockets.emit(socketId, 'gameStart', { data: 'game start!'});
+
+
+  },
   // Leave a chat room -- this is bound to 'delete /room/:roomId/users'
   'leave': function (req, res, next) {
     // Get the ID of the room to join
