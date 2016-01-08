@@ -46,6 +46,7 @@ module.exports.routes = {
   '/room/:roomId/join': 'RoomController.subscribeToFunRoom',
   '/game/create': 'GameController.create',
   '/game/:id/start': 'GameController.start',
+  '/game/:id/endRound': 'GameController.endRound',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

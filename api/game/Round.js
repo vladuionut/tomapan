@@ -17,6 +17,12 @@ function Round(id, game) {
 Round.prototype.start = function (cb) {
   this.timerId = setTimeout(cb || this.onTimeOut,this.ROUNDTIME*1000);
 }
+Round.prototype.stop = function(cb){
+  clearTimeout(this.timerId);
+  if (typeof cb === "function"){
+    cb.call();
+  }
+}
 
 Round.prototype.onTimeOut = function(){
   console.log("runda terminata");

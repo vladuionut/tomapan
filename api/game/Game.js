@@ -19,6 +19,10 @@ Game.prototype.roundEnd = function() {
   this.nextRound();
 
 };
+Game.prototype.endRoundBeforeTime = function(){
+  console.log('endRoundBeforeTime ');
+  this.currentRound.stop(this.roundEnd.bind(this));
+}
 Game.prototype.nextRound = function() {
   if (this.rounds.length <= this.MAX_ROUNDS) {
     this.currentRound = new Round(this.rounds.length + 1, this);
